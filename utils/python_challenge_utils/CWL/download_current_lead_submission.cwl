@@ -8,8 +8,7 @@ baseCommand: [python3, /usr/local/bin/download_current_lead_submission.py]
 
 hints:
   DockerRequirement:
-    #dockerPull: quay.io/andrewelamb/challenge_utils
-    dockerPull: challenge_utils
+    dockerPull: quay.io/andrewelamb/python_challenge_utils
 
 inputs:
 
