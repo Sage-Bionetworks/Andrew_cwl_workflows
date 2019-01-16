@@ -28,8 +28,6 @@ def get_submitters_lead_submission(submitterid, queue, synapse_object):
         object_id = sub_dict['objectId']
         sub = syn.getSubmission(object_id, downloadLocation=".")
         return(sub.filePath)
-    else:
-        return(NULL)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
