@@ -4,7 +4,7 @@ import argparse
 import os
 
 
-def get_submitterid_from_submission_id(submissionid, queue, synapse_object, allowed_statuses = ["VALIDATED", "RECIEVED"]):
+def get_submitterid_from_submission_id(submissionid, queue, synapse_object, allowed_statuses = ["VALIDATED", "RECEIVED"]):
     query = "select * from " + queue + " where objectId == " + str(submissionid)
     generator = challengeutils.utils.evaluation_queue_query(synapse_object, query)
     lst = list(generator)
