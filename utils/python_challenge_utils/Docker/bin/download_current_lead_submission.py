@@ -4,23 +4,21 @@ import argparse
 import os
 
 
-def get_submitterid_from_submission_id(submissionid, queue, synapse_object, allowed_statuses = ["VALIDATED", "RECEIVED"]):
+def get_submitterid_from_submission_id(submissionid, queue, synapse_object):
     query = "select * from " + queue + " where objectId == " + str(submissionid)
     generator = challengeutils.utils.evaluation_queue_query(synapse_object, query)
     lst = list(generator)
     if len(lst) == 0:
         raise Exception('submission id {} not in queue'.format(submissionid))
     submission_dict = lst[0]
-    status = submission_dict['status']
-    if status not in allowed_statuses:
-        raise Exception('submission status not valid: {}'.format(status))
     submitterid = submission_dict['submitterId']
     return(submitterid)
 
 def get_submitters_lead_submission(submitterid, queue, synapse_object):
-    query = ("select * from " + queue + " where submitterId == " + 
-             str(submitterid) + "and status == 'SCORED' and 'met_cutoff' == 'true'" +
-             "order by createdOn DESC")
+    query = ("select * from " + queue + 
+             " where submitterId == " + str(submitterid) + 
+             " and prediction_file_status == 'SCORED' and 'met_cutoff' == 'true'" +
+             " order by createdOn DESC")
     generator = challengeutils.utils.evaluation_queue_query(syn, query)
     lst = list(generator)
     if len(lst) > 0:
