@@ -23,9 +23,13 @@ def get_submitters_lead_submission(submitterid, queue, synapse_object):
     lst = list(generator)
     if len(lst) > 0:
         sub_dict = lst[0]
-        object_id = sub_dict['objectId']
-        sub = syn.getSubmission(object_id, downloadLocation=".")
+        objectid = sub_dict['objectId']
+        if args.verbose:
+            print("Dowloading submissionid: " + objectid)
+        sub = syn.getSubmission(objectid, downloadLocation=".")
         return(sub.filePath)
+    else:
+        print("Dowloading no file")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -33,6 +37,7 @@ if __name__ == '__main__':
     parser.add_argument("-q", "--queue", required=True, help="string of evaluation queue, such as evaluation_1")
     parser.add_argument("-c", "--synapse_config", required=True, help="credentials file")
     parser.add_argument("-s", "--status", required=True, help="Submission status")
+    parser.add_argument("-v", "--verbose", action='store_false')
     args = parser.parse_args()
     
     if args.status == "VALIDATED":
