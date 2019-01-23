@@ -27,7 +27,8 @@ def get_submitters_lead_submission(submitterid, queue, synapse_object):
         if args.verbose:
             print("Dowloading submissionid: " + objectid)
         sub = syn.getSubmission(objectid, downloadLocation=".")
-        return(sub.filePath)
+        os.rename(sub.filePath, "previous_submission.csv")
+        return("previous_submission.csv")
     else:
         print("Dowloading no file")
 
