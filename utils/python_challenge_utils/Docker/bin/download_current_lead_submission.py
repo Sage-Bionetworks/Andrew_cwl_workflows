@@ -17,7 +17,8 @@ def get_submitterid_from_submission_id(submissionid, queue, synapse_object):
 def get_submitters_lead_submission(submitterid, queue, synapse_object):
     query = ("select * from " + queue + 
              " where submitterId == " + str(submitterid) + 
-             " and prediction_file_status == 'SCORED' and 'met_cutoff' == 'true'" +
+             " and prediction_file_status == 'SCORED' and '" + 
+             args.cutoff_annotation + "' == 'true'" +
              " order by createdOn DESC")
     generator = challengeutils.utils.evaluation_queue_query(syn, query)
     lst = list(generator)
@@ -39,6 +40,7 @@ if __name__ == '__main__':
     parser.add_argument("-c", "--synapse_config", required=True, help="credentials file")
     parser.add_argument("-s", "--status", required=True, help="Submission status")
     parser.add_argument("-v", "--verbose", action='store_false')
+    parser.add_argument("-c", "--cutoff_annotation", default = "met_cutoff")
     args = parser.parse_args()
     
     if args.status == "VALIDATED":
