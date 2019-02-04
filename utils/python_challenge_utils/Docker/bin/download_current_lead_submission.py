@@ -40,7 +40,7 @@ if __name__ == '__main__':
     parser.add_argument("-c", "--synapse_config", required=True, help="credentials file")
     parser.add_argument("-s", "--status", required=True, help="Submission status")
     parser.add_argument("-v", "--verbose", action='store_false')
-    parser.add_argument("-c", "--cutoff_annotation", default = "met_cutoff")
+    parser.add_argument("-a", "--cutoff_annotation", default = "met_cutoff")
     args = parser.parse_args()
     
     if args.status == "VALIDATED":
