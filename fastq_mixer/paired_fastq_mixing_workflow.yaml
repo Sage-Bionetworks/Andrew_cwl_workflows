@@ -1,0 +1,15 @@
+p1_fastq_files:
+- {class: File, path: one.fastq}
+- {class: File, path: one.fastq}
+p2_fastq_files:
+- {class: File, path: two.fastq}
+- {class: File, path: two.fastq}
+fractions:
+  - 0.1
+  - 0.9
+kallisto_index:
+  class: File
+  path: GRCH38.idx
+plaintext: true
+output_name: rep_1_abundances.tsv 
+seed: 1
