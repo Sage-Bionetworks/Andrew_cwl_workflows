@@ -51,7 +51,7 @@ outputs:
     outputBinding:
       glob: $(inputs.results_json_file)
 
-  - id: file_synapse_id
+  - id: folder_synapse_id
     type: string
     outputBinding:
       glob: $(inputs.results_json_file)
