@@ -26,6 +26,8 @@ if __name__ == '__main__':
         annotations_json_file = open(args.annotations_json_file)
         annotations_json_str  = annotations_json_file.read()
         annotations_dict = json.loads(annotations_json_str)
+    else:
+        annotations_dict = None
 
     file_entity = synapseclient.File(
         args.file, 

@@ -13,4 +13,7 @@ if __name__ == '__main__':
     syn = synapseclient.Synapse(configPath=args.synapse_config_file)
     syn.login()
 
-    syn.get(args.synapse_id, downloadLocation = '.')
+    entity = syn.get(args.synapse_id, downloadLocation = '.')
+    assert entity.properties["concreteType"] == "org.sagebionetworks.repo.model.FileEntity", (
+        args.synapse_id + " is not a synapse file: " + entity.properties["concreteType"])
+
