@@ -6,12 +6,34 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser("Creates a folder in synapse")
 
-    parser.add_argument('-n', '--folder_name', type = str, required=True)
-    parser.add_argument('-c', '--synapse_config_file', type = str, required=True)
-    parser.add_argument('-p', '--parent_synapse_id', type = str, required=True)
+    parser.add_argument(
+            '-n', 
+            '--folder_name', 
+            type = str,
+            required=True)
     
-    parser.add_argument('-a', '--annotations_json_file', type=str)
-    parser.add_argument('-r', '--results_json_file', type=str, default="properties.json")
+    parser.add_argument(
+            '-c',
+            '--synapse_config_file', 
+            type = str,
+            required=True)
+    
+    parser.add_argument(
+            '-p', 
+            '--parent_synapse_id', 
+            type = str,
+            required=True)
+    
+    parser.add_argument(
+            '-a',
+            '--annotations_json_file',
+            type=str)
+    
+    parser.add_argument(
+            '-r', 
+            '--results_json_file',
+            type=str,
+            default="properties.json")
 
     args = parser.parse_args()
 

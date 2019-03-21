@@ -11,7 +11,7 @@ requirements:
 
 hints:
   DockerRequirement:
-    dockerPull: python_synapse_client
+    dockerPull: quay.io/andrewelamb/python_synapse_client
     
 baseCommand:
 - python3

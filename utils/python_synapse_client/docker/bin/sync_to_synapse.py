@@ -4,10 +4,19 @@ import synapseutils
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser("Gets file from synapse")
+    parser = argparse.ArgumentParser("Stores files in Synapse")
 
-    parser.add_argument('-m', '--manifest_file', type = str, required=True)
-    parser.add_argument('-c', '--synapse_config_file', type = str, required=True)   
+    parser.add_argument(
+            '-m',
+            '--manifest_file',
+            type = str,
+            required=True)
+    
+    parser.add_argument(
+            '-c', 
+            '--synapse_config_file', 
+            type = str, 
+            required=True)   
 
     args = parser.parse_args()
 
