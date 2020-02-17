@@ -6,6 +6,11 @@ cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: cat
 
+hints:
+- class: ResourceRequirement
+  coresMin: 1
+  ramMin: 15000
+
 stdout: $(inputs.output_name)
 
 requirements:
