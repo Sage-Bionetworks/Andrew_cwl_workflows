@@ -1,0 +1,33 @@
+{
+  "p1_fastq_arrays": [
+     [
+       {"class": "File", "path": "inputs/one.fastq"},
+       {"class": "File", "path": "inputs/one.fastq"}
+     ],
+     [
+       {"class": "File", "path": "inputs/one.fastq"},
+       {"class": "File", "path": "inputs/one.fastq"}
+     ]
+  ],
+  "p2_fastq_arrays": [
+     [
+       {"class": "File", "path": "inputs/two.fastq"},
+       {"class": "File", "path": "inputs/two.fastq"}
+     ],
+     [
+       {"class": "File", "path": "inputs/two.fastq"},
+       {"class": "File", "path": "inputs/two.fastq"}
+     ]
+  ],
+  "total_read_arrays": [
+     [100, 100],
+     [200, 200],
+  ],
+  "kallisto_index":  {"class": "File", "path": "inputs/GRCH38.idx"},
+  "synapse_config":  {"class": "File", "path": "/home/aelamb/.synapseConfig"},
+  "p1_fastq_output_names": ["test1_p1.fastq", "test2_p1.fastq"],
+  "p2_fastq_output_names": ["test1_p2.fastq", "test2_p2.fastq"],
+  "kallisto_output_names": ["test1_kallisto.tsv", "test2_kallisto.tsv"],
+  "fastq_destination_id": "syn21608643",
+  "kallisto_destination_id": "syn21608711"
+}

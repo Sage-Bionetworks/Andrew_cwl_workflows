@@ -64,13 +64,20 @@ steps:
       source: p1_fastq_output_name
     out: [output_file]
 
+  p1_fastq_gzip:
+    run: https://raw.githubusercontent.com/CRI-iAtlas/iatlas-workflows/v1.0/utils/linux_utils/CWL/gzip.cwl
+    in:
+    - id: file
+      source: p1_fastq_rename/output_file
+    out: [gziped_file]
+
   p1_fastq_syn_store:
     run: https://raw.githubusercontent.com/Sage-Bionetworks/synapse-client-cwl-tools/v0.1/synapse-store-tool.cwl
     in: 
     - id: synapse_config
       source: synapse_config
     - id: file_to_store
-      source: p1_fastq_rename/output_file
+      source: p1_fastq_gzip/gziped_file
     - id: parentid
       source: fastq_destination_id
     out: []
@@ -84,13 +91,20 @@ steps:
       source: p2_fastq_output_name
     out: [output_file]
 
+  p2_fastq_gzip:
+    run: https://raw.githubusercontent.com/CRI-iAtlas/iatlas-workflows/v1.0/utils/linux_utils/CWL/gzip.cwl
+    in:
+    - id: file
+      source: p2_fastq_rename/output_file
+    out: [gziped_file]
+
   p2_fastq_syn_store:
     run: https://raw.githubusercontent.com/Sage-Bionetworks/synapse-client-cwl-tools/v0.1/synapse-store-tool.cwl
     in: 
     - id: synapse_config
       source: synapse_config
     - id: file_to_store
-      source: p2_fastq_rename/output_file
+      source: p2_fastq_gzip/gziped_file
     - id: parentid
       source: fastq_destination_id
     out: []
