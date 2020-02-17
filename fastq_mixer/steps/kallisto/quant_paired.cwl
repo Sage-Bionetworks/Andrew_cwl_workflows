@@ -4,9 +4,6 @@ cwlVersion: v1.0
 class: CommandLineTool
 
 hints:
-- class: ResourceRequirement
-  coresMin: 1
-  ramMin: 15000
 - class: DockerRequirement
   dockerPull: quay.io/cri-iatlas/kallisto:1.0
 
